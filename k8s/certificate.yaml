@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: k8s-markwilliams970-com-tls
+spec:
+  secretName: k8s-markwilliams970-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: k8s-markwilliams970.com
+  dnsNames:
+    - k8s-markwilliams970.com
+    - www.k8s-markwilliams970.com
+  acme:
+    config:
+      - http01:
+        ingressClass: nginx
+      domains:
+        - k8s-markwilliams970.com
+        - www.k8s-markwilliams970.com
